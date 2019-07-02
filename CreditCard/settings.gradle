@@ -1,0 +1,19 @@
+include ':app'
+//登陆模块
+include ':a-cc-login'
+//主界面模块
+include ':a-cc-main'
+//setting
+include ':a-cc-setting'
+include ':c-custom-view'
+// android组件base的基类
+// 界面跳转路由，无依赖module
+include ':c-framework'
+// android网络请求
+include ':c-network-http'
+// android公共tools
+include ':c-common-tools'
+//
+include ':c-define-processor'
+// 界面跳转路由，无依赖module
+include ':c-router'

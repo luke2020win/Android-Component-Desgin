@@ -1,0 +1,34 @@
+/**
+ * 工程全局的配置变量，管理所有module的编译版本、依赖库的版本
+ */
+rootProject.ext {
+    // Sdk and tools
+    buildToolsVersion = localBuildToolsVersion
+    compileSdkVersion = 28
+    minSdkVersion = 16
+    targetSdkVersion = 28
+    versionCode = 1
+    versionName = "Credit Card V1.0.0"
+    javaVersion = JavaVersion.VERSION_1_8
+
+    // App dependencies version
+    supportLibraryVersion = "28.0.0"
+    constraintVersion = "1.1.3"
+    multidexVersion = "1.0.2"
+
+    //5.第三方库版本
+    arouterApiVersion = "1.4.1"
+    arouterCompiler = "1.2.2"
+    xutilsVersion = "3.5.0"
+    glideVersion = "3.7.0"
+    gsonVersion = "2.8.2"
+    fragmentationVersion = "1.1.9"
+    loggerVersion = "2.1.1"
+    rxjavaVersion = '2.1.8'
+    rxandroidVersion = '2.0.1'
+    okhttpVersion = '3.9.1'
+    okhttploggingVersion = '3.8.1'
+    retrofitVersion = '2.3.0'
+    disklrucacheVersion='2.0.2'
+    butterknifeVersion = localButterknifeVersion
+}

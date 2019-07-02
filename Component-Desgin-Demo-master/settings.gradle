@@ -1,0 +1,18 @@
+include ':app'
+//登陆模块
+include ':b-xhn-login'
+include ':b-xhn-setting'
+//登陆模块
+include ':b-xhn-main'
+//登陆模块
+include ':c-base-resource'
+// activity和application的基类，依赖c-logmanager日志管理mudule
+include':c-framework'
+// net网络库、rxbus网络数据结构、base基础管理、adapter自定义适配器、utils工具类的公共组件
+include ':c-common'
+include ':c-processor'
+include ':c-annotations'
+// 日志管理，第一层module，无依赖module
+include ':c-logmanager'
+// 界面跳转路由，第一层module，无依赖module
+include ':c-router'

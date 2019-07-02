@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.test.android.plugin1"
+    >
+
+    <application
+        android:name=".Plugin1Application"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        >
+
+        <meta-data
+            android:name="com.qihoo360.plugin.name"
+            android:value="plugin1" />
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.InnerActivity" android:process=":plugin1">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.ForResultActivity" android:process=":plugin2">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--standard-->
+        <activity android:name=".activity.standard.StandardActivity"
+            android:label="@string/app_name"
+            android:launchMode="standard"
+            android:screenOrientation="unspecified"
+            android:alwaysRetainTaskState="true"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|mcc|mnc|uiMode"
+            android:resizeableActivity="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!--singleTop-->
+        <activity android:name=".activity.single_top.SingleTopActivity1"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="unspecified"
+            android:alwaysRetainTaskState="true"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|mcc|mnc|uiMode"
+            android:resizeableActivity="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!--singleTask-->
+        <activity android:name=".activity.single_task.SingleTaskActivity1"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="unspecified"
+            android:alwaysRetainTaskState="true"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|mcc|mnc|uiMode"
+            android:resizeableActivity="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!--singleInstance-->
+        <activity android:name=".activity.single_instance.SingleInstanceActivity1"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:screenOrientation="unspecified"
+            android:alwaysRetainTaskState="true"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|mcc|mnc|uiMode"
+            android:resizeableActivity="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!--intent-filter-->
+        <activity android:name=".activity.intent_filter.IntentFlterActivity1"
+            android:label="@string/app_name"
+            android:launchMode="standard"
+            android:screenOrientation="unspecified"
+            android:alwaysRetainTaskState="true"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|mcc|mnc|uiMode"
+            android:resizeableActivity="false"
+            android:windowSoftInputMode="adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.plugin1" />
+                <category android:name="category_plugin1" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!--notification-->
+        <activity android:name=".activity.notification.NotificationActivity" />
+
+        <!--preference-->
+        <activity android:name=".activity.preference.PreferenceActivity1"/>
+
+
+        <!--task-affinity-->
+        <activity android:name=".activity.task_affinity.TA1Activity1"
+            android:label="TA1Activity1"
+            android:launchMode="singleTask"
+            android:taskAffinity=":ta_1"/>
+
+        <activity android:name=".activity.task_affinity.TA1Activity2"
+            android:label="TA1Activity2"
+            android:launchMode="singleTask"
+            android:taskAffinity=":ta_1"/>
+
+        <activity android:name=".activity.task_affinity.TA2Activity3"
+            android:label="TA2Activity3"
+            android:launchMode="singleTask"
+            android:taskAffinity=":ta_2"/>
+
+        <activity android:name=".activity.task_affinity.TA2Activity4"
+            android:label="TA2Activity4"
+            android:launchMode="singleTask"
+            android:taskAffinity=":ta_2"/>
+
+
+        <!--theme-->
+        <!--android:theme="@style/Pluing1Theme"-->
+        <!--android:theme="@android:style/Theme.Black.NoTitleBar"-->
+        <!--android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"-->
+        <!--android:theme="@style/Theme.AppCompat.Light.DarkActionBar"-->
+        <activity android:name=".activity.theme.ThemeActivity1" android:theme="@style/AppTheme" />
+
+
+        <!--provider-->
+        <provider
+            android:name=".provider.Plugin1Provider"
+            android:authorities="com.android.test.host.demo.plugin1.TEST_PROVIDER"/>
+
+
+        <activity android:name=".provider.FileProviderActivity" />
+        <!-- 以下provider，作为插件时，可注释掉；作为单独APK时需要声明-->
+        <provider
+            android:name=".provider.Plugin1FileProvider"
+            android:authorities="com.android.test.host.demo.plugin1.FILE_PROVIDER"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider_path" />
+        </provider>
+
+        <!--静态注册广播-->
+        <receiver android:name=".receiver.Plugin1BroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.test.android.plugin1.receiver.ACTION1_TEST" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".service.Plugin1Service1" android:process=":bg">
+            <intent-filter>
+                <action android:name="com.test.android.plugin1.service.action.SERVICE1" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

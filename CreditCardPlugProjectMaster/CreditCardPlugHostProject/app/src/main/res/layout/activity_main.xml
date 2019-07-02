@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff0000"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="这里是宿主界面!!!"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btn_plugin1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="启动插件1"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btn_plugin1_inner_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="启动插件新进程"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btn_plugin1_result_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="测试插件的forResult()"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btn_plugin1_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="测试插件中的Fragment"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btn_plugin1_intent_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="测试插件中的Intent-Filter"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btn_plugin1_file_provider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="测试插件中的File Provider"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/id_btn_plugin1_provider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            android:text="测试插件中的Provider读写数据" />
+
+        <Button
+            android:id="@+id/id_btn_start_plugin_receiver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            android:text="测试插件中的广播(需先启动插件)" />
+
+        <Button
+            android:id="@+id/id_btn_start_plugin_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            android:text="测试插件中的Service" />
+
+        <Button
+            android:id="@+id/id_btn_start_plugin2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            android:text="启动插件2" />
+
+        <Button
+            android:id="@+id/id_btn_test_plugin2_binder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            android:text="测试插件2中的Binder(需先启动插件2)" />
+
+        <Button
+            android:id="@+id/id_btn_test_plugin2_so"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            android:text="调用插件2中so库中的方法" />
+
+        <Button
+            android:id="@+id/id_btn_test_update_plugins"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            android:text="安装（更新）文件夹中的插件" />
+
+        <Button
+            android:id="@+id/id_btn_test_resource"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            android:text="读取插件中的资源" />
+    </LinearLayout>
+
+</ScrollView>

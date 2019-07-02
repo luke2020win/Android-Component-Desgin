@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.freebank.creditcard"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        multiDexEnabled true
+
+        if (!isApp.toBoolean()) {
+            //ARouter
+            javaCompileOptions {
+                annotationProcessorOptions {
+                    arguments = [AROUTER_MODULE_NAME: project.getName()]
+                }
+            }
+        }
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        resConfigs "zh", "en"
+        buildConfigField("String", "APP_SECRET", "\"bb2222222\"")
+        buildConfigField("String", "APPID", "\"aa1111111\"")
+        buildConfigField("String", "APP_NAME", "\"小花牛\"")
+
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    buildTypes {
+        debug {
+            //正式地址
+            buildConfigField "String", "BASE_URL", "\"http://10.0.2.2:8801/\""
+//            //测试地址
+//            buildConfigField "String", "BASE_URL", "\"http://dev.xiaohuaniu.vip/\""
+            //DEBUG
+            buildConfigField "Boolean", "IS_DEBUG", "true"
+        }
+
+        release {
+            //正式地址
+            buildConfigField "String", "BASE_URL", "\"http://card.xiaohuaniu.vip/\""
+            //DEBUG
+            buildConfigField "Boolean", "IS_DEBUG", "false"
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation project(':c-common-tools')
+    implementation project(':c-framework')
+    implementation project(':c-network-http')
+    if (!isApp.toBoolean()) {
+        implementation project(':a-cc-main')
+        implementation project(':a-cc-login')
+        implementation project(':a-cc-setting')
+    }
+}

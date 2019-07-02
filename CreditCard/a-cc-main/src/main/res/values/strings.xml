@@ -1,0 +1,6 @@
+<resources>
+    <string name="main_app_name">a-cc-main</string>
+    <string name="tab_me">我</string>
+    <string name="tab_cretditcard">信用卡</string>
+    <string name="tab_home">首页</string>
+</resources>

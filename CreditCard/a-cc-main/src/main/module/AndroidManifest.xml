@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.freebank.main">
+
+    <application>
+
+        <activity
+            android:name=".main.MainActivity"
+            android:label="@string/main_app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+    </application>
+</manifest>
